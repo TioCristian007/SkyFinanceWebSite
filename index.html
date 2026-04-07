@@ -442,15 +442,16 @@
     gap: 10px;
     font-size: 12px;
     z-index: 2;
+    white-space: nowrap;
   }
   .float-card.top {
-    top: -16px;
-    left: -32px;
+    top: -28px;
+    left: -72px;
     animation: floatA 5s ease-in-out infinite;
   }
   .float-card.bottom {
-    bottom: 24px;
-    right: -28px;
+    bottom: -22px;
+    right: -68px;
     animation: floatB 6s ease-in-out infinite;
   }
   .float-icon {
@@ -477,8 +478,8 @@
     font-size: 13px;
   }
   @media (max-width: 980px) {
-    .float-card.top { left: 8px; }
-    .float-card.bottom { right: 8px; }
+    .float-card.top { left: -12px; top: -16px; }
+    .float-card.bottom { right: -12px; bottom: -14px; }
   }
 
   /* ===== LOGO STRIP ===== */
@@ -523,6 +524,310 @@
   /* ===== SECTIONS ===== */
   section { padding: 110px 0; }
   @media (max-width: 720px) { section { padding: 72px 0; } }
+
+  /* ===== AUTOMATION SECTION ===== */
+  .automation {
+    padding: 120px 0;
+    background: linear-gradient(180deg, var(--bg) 0%, #EAF5EE 50%, var(--bg) 100%);
+    position: relative;
+  }
+  .automation::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  }
+  .automation::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  }
+  .automation-grid {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 80px;
+    align-items: center;
+  }
+  @media (max-width: 980px) {
+    .automation-grid { grid-template-columns: 1fr; gap: 56px; }
+  }
+
+  .automation-text .section-eyebrow {
+    background: var(--navy);
+    color: var(--green);
+  }
+  .automation-text h2 {
+    font-size: clamp(34px, 4.6vw, 56px);
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 22px;
+  }
+  .automation-text h2 em {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--green-dark);
+  }
+  .automation-text > p {
+    font-size: 18px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 32px;
+    max-width: 520px;
+  }
+  .automation-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .automation-list li {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    font-size: 15px;
+    color: var(--text-primary);
+    line-height: 1.55;
+  }
+  .automation-list li strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+  .auto-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: var(--green-light);
+    color: var(--green-dark);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .auto-icon svg { width: 14px; height: 14px; }
+
+  /* Banks aggregation visual */
+  .banks-visual {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow:
+      0 1px 2px rgba(13, 27, 42, 0.04),
+      0 24px 60px -16px rgba(13, 27, 42, 0.14);
+    position: relative;
+    overflow: hidden;
+  }
+  .banks-visual::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(0, 200, 83, 0.08), transparent 60%);
+    pointer-events: none;
+  }
+  .banks-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  .banks-header h4 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+  .banks-header .live {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-family: var(--mono);
+    color: var(--green-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .banks-header .live::before {
+    content: '';
+    width: 7px; height: 7px;
+    background: var(--green);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--green);
+    animation: livePulse 2s ease-in-out infinite;
+  }
+  @keyframes livePulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .total-balance {
+    text-align: center;
+    padding: 20px 0 24px;
+    position: relative;
+  }
+  .total-balance .label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .total-balance .amount {
+    font-size: 44px;
+    font-weight: 600;
+    color: var(--navy);
+    letter-spacing: -0.03em;
+    font-variant-numeric: tabular-nums;
+  }
+  .total-balance .amount .currency {
+    font-size: 22px;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-right: 4px;
+    vertical-align: top;
+    line-height: 1.6;
+  }
+  .total-balance .delta {
+    margin-top: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--green-dark);
+    background: var(--green-light);
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-weight: 500;
+  }
+
+  .banks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+  .bank-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    background: var(--bg);
+    border-radius: 12px;
+    transition: all 0.3s;
+    border: 1px solid transparent;
+    position: relative;
+  }
+  .bank-row:hover {
+    border-color: var(--green);
+    transform: translateX(4px);
+  }
+  .bank-logo {
+    width: 36px; height: 36px;
+    border-radius: 9px;
+    display: grid;
+    place-items: center;
+    color: var(--white);
+    font-weight: 700;
+    font-size: 13px;
+    flex-shrink: 0;
+    letter-spacing: -0.02em;
+  }
+  .bank-logo.bch { background: #003876; }
+  .bank-logo.santander { background: #EC0000; }
+  .bank-logo.bci { background: #003DA5; }
+  .bank-logo.itau { background: #FF6200; }
+  .bank-info { flex: 1; min-width: 0; }
+  .bank-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.2;
+  }
+  .bank-account {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-family: var(--mono);
+    margin-top: 2px;
+  }
+  .bank-balance {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+  }
+  .bank-balance .sync {
+    display: block;
+    font-size: 10px;
+    color: var(--text-muted);
+    font-weight: 400;
+    font-family: var(--mono);
+    margin-top: 2px;
+  }
+
+  .auto-feed {
+    background: var(--navy);
+    border-radius: 12px;
+    padding: 16px 18px;
+    color: var(--white);
+  }
+  .auto-feed-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 10px;
+    font-family: var(--mono);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--green);
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .feed-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    font-size: 13px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    animation: feedSlide 0.5s ease-out;
+  }
+  .feed-item:first-of-type { border-top: none; }
+  .feed-item .desc {
+    color: rgba(255,255,255,0.85);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .feed-item .desc::before {
+    content: '';
+    width: 5px; height: 5px;
+    background: var(--green);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .feed-item .amt {
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+  .feed-item .amt.in { color: var(--green); }
+  .feed-item .amt.out { color: rgba(255,255,255,0.7); }
+  @keyframes feedSlide {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
   .section-head {
     margin-bottom: 64px;
@@ -1120,8 +1425,8 @@
     </a>
     <div class="nav-links">
       <a href="#producto">Producto</a>
+      <a href="#automatizacion">Automatización</a>
       <a href="#mr-money">Mr. Money</a>
-      <a href="#como-funciona">Cómo funciona</a>
       <a href="#seguridad">Seguridad</a>
       <a href="#empezar" class="nav-cta">Comenzar gratis</a>
     </div>
@@ -1134,17 +1439,17 @@
     <div class="hero-grid">
       <div>
         <div class="hero-badge">
-          <span class="pill">Nuevo</span>
-          Mr. Money ahora con metas inteligentes
+          <span class="pill">Open Banking</span>
+          Conecta todos tus bancos en 2 minutos
         </div>
 
         <h1 class="hero-title">
-          Tus finanzas,<br>
-          finalmente <em>claras.</em>
+          Respira.<br>
+          Tus finanzas están <em>en buenas manos.</em>
         </h1>
 
         <p class="hero-sub">
-          Sky es tu asesor financiero personal con IA. Conecta tus cuentas, deja de planillar, y obtén respuestas reales sobre tu plata — sin tecnicismos, sin culpas, sin esfuerzo.
+          Sky conecta todos tus bancos y registra cada movimiento por ti — compras, transferencias, ingresos. Sin planillas, sin apuntar nada. Mr. Money te explica todo en lenguaje claro, cuando lo necesites.
         </p>
 
         <div class="cta-row">
@@ -1165,10 +1470,10 @@
 
       <div class="hero-mock">
         <div class="float-card top">
-          <div class="float-icon">🎯</div>
+          <div class="float-icon">🏦</div>
           <div>
-            <div class="label">Meta</div>
-            <div class="value">Viaje a Perú</div>
+            <div class="label">3 cuentas sincronizadas</div>
+            <div class="value">$1.247.500 total</div>
           </div>
         </div>
 
@@ -1222,10 +1527,10 @@
         </div>
 
         <div class="float-card bottom">
-          <div class="float-icon">🏆</div>
+          <div class="float-icon">⚡</div>
           <div>
-            <div class="label">Desafío</div>
-            <div class="value">+250 pts</div>
+            <div class="label">Detectado automático</div>
+            <div class="value">Uber · −$8.400</div>
           </div>
         </div>
       </div>
@@ -1248,6 +1553,115 @@
     </div>
   </div>
 </div>
+
+<!-- AUTOMATION — el diferenciador -->
+<section class="automation" id="automatizacion">
+  <div class="container">
+    <div class="automation-grid">
+      <div class="automation-text reveal">
+        <div class="section-eyebrow">Automatización total</div>
+        <h2>Cero planillas.<br>Cero <em>anotar gastos.</em></h2>
+        <p>
+          Sky no es un gestor de gastos manual disfrazado de app moderna. Conectas tus bancos una vez vía Open Banking y desde ese momento <strong>cada movimiento se registra solo</strong>: compras con tarjeta, transferencias, sueldos, suscripciones, débitos automáticos. Todo, en tiempo real.
+        </p>
+        <ul class="automation-list">
+          <li>
+            <div class="auto-icon">
+              <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <div><strong>Multi-banco real.</strong> Conecta BancoEstado, Santander, BCI, Itaú, Falabella y más. Sky los unifica en una sola vista.</div>
+          </li>
+          <li>
+            <div class="auto-icon">
+              <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <div><strong>Saldo total instantáneo.</strong> La suma exacta de todo tu dinero, en todas tus cuentas, cada vez que abres la app.</div>
+          </li>
+          <li>
+            <div class="auto-icon">
+              <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <div><strong>Categorización automática.</strong> Cada transacción se clasifica sola — comida, transporte, suscripciones — sin que toques nada.</div>
+          </li>
+          <li>
+            <div class="auto-icon">
+              <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <div><strong>Sin disciplina, sin recordatorios.</strong> Si te olvidas de Sky por un mes, al volver tienes todo igual de actualizado.</div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="banks-visual reveal">
+        <div class="banks-header">
+          <h4>Mis cuentas</h4>
+          <div class="live">Sincronizado</div>
+        </div>
+
+        <div class="total-balance">
+          <div class="label">Saldo total · todos los bancos</div>
+          <div class="amount"><span class="currency">$</span>3.847.520</div>
+          <div class="delta">↑ $124.300 esta semana</div>
+        </div>
+
+        <div class="banks-list">
+          <div class="bank-row">
+            <div class="bank-logo bch">BE</div>
+            <div class="bank-info">
+              <div class="bank-name">BancoEstado</div>
+              <div class="bank-account">CuentaRUT · ••4521</div>
+            </div>
+            <div class="bank-balance">
+              $1.245.800
+              <span class="sync">hace 2 min</span>
+            </div>
+          </div>
+          <div class="bank-row">
+            <div class="bank-logo santander">SA</div>
+            <div class="bank-info">
+              <div class="bank-name">Santander</div>
+              <div class="bank-account">Cta. Corriente · ••7832</div>
+            </div>
+            <div class="bank-balance">
+              $1.890.450
+              <span class="sync">hace 1 min</span>
+            </div>
+          </div>
+          <div class="bank-row">
+            <div class="bank-logo bci">BCI</div>
+            <div class="bank-info">
+              <div class="bank-name">BCI</div>
+              <div class="bank-account">Cta. Vista · ••2104</div>
+            </div>
+            <div class="bank-balance">
+              $711.270
+              <span class="sync">hace 4 min</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="auto-feed">
+          <div class="auto-feed-label">
+            <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            Movimientos automáticos · en vivo
+          </div>
+          <div class="feed-item">
+            <span class="desc">Uber Trip</span>
+            <span class="amt out">−$4.890</span>
+          </div>
+          <div class="feed-item">
+            <span class="desc">Sueldo · Empresa S.A.</span>
+            <span class="amt in">+$1.450.000</span>
+          </div>
+          <div class="feed-item">
+            <span class="desc">Spotify Premium</span>
+            <span class="amt out">−$5.300</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- FEATURES -->
 <section id="producto">
