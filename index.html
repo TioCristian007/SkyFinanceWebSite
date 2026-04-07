@@ -59,6 +59,7 @@
     backdrop-filter: saturate(180%) blur(14px);
     -webkit-backdrop-filter: saturate(180%) blur(14px);
     border-bottom: 1px solid var(--border);
+    overflow: visible;
   }
   .nav-inner {
     max-width: 1240px;
@@ -67,6 +68,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    overflow: visible;
   }
   @media (max-width: 720px) { .nav-inner { padding: 16px 20px; } }
 
@@ -76,13 +78,29 @@
     text-decoration: none;
   }
   .logo img {
-    height: 44px;
     width: auto;
     display: block;
   }
-  .foot-brand .logo img { height: 56px; }
+  nav .logo {
+    overflow: visible;
+  }
+  nav .logo img {
+    height: 44px;
+    transform: scale(2.25);
+    transform-origin: left center;
+  }
+  .foot-brand .logo img {
+    height: 56px;
+    transform: none;
+  }
   @media (max-width: 720px) {
-    .logo img { height: 36px; }
+    nav .logo img {
+      height: 36px;
+      transform: scale(1.55);
+    }
+    .foot-brand .logo img {
+      height: 44px;
+    }
   }
 
   .nav-links {
@@ -445,7 +463,7 @@
     white-space: nowrap;
   }
   .float-card.top {
-    top: -28px;
+    top: -48px;
     left: -72px;
     animation: floatA 5s ease-in-out infinite;
   }
@@ -1445,7 +1463,7 @@
 
         <h1 class="hero-title">
           Respira.<br>
-          Tus finanzas están <em>en buenas manos.</em>
+          Tus finanzas están <em>en las mejores manos.</em>
         </h1>
 
         <p class="hero-sub">
@@ -1505,7 +1523,7 @@
 
             <div class="progress-card">
               <div class="top">
-                <h5>Meta: Viaje a Perú</h5>
+                <h5>Meta: Mis sueños</h5>
                 <div class="amount"><span>$680k</span> / $1M</div>
               </div>
               <div class="progress-bar">
@@ -1562,7 +1580,7 @@
         <div class="section-eyebrow">Automatización total</div>
         <h2>Cero planillas.<br>Cero <em>anotar gastos.</em></h2>
         <p>
-          Sky no es un gestor de gastos manual disfrazado de app moderna. Conectas tus bancos una vez vía Open Banking y desde ese momento <strong>cada movimiento se registra solo</strong>: compras con tarjeta, transferencias, sueldos, suscripciones, débitos automáticos. Todo, en tiempo real.
+          Sky es la solución para tu tranquilidad financiera, trackea y gestiona tus finanzas sin registros manuales tediosos. Conectas tus bancos una vez vía Open Banking y desde ese momento <strong>cada movimiento se registra solo</strong>: compras con tarjeta, transferencias, sueldos, suscripciones, débitos automáticos. Todo, en tiempo real.
         </p>
         <ul class="automation-list">
           <li>
@@ -1689,7 +1707,7 @@
           <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
         </div>
         <h3>Mr. Money con IA</h3>
-        <p>Un asesor financiero conversacional que conoce tu contexto. Le preguntas, te responde con datos reales — los tuyos.</p>
+        <p>Un asesor financiero conversacional que conoce tu contexto. Le preguntas, te responde según tu perfil y crea metas financieras personalizadas.</p>
         <span class="tag">/api/chat</span>
       </div>
 
@@ -1698,7 +1716,7 @@
           <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
         </div>
         <h3>Metas realistas</h3>
-        <p>Define lo que quieres lograr. Sky calcula si es alcanzable con tu ritmo actual y te muestra ajustes concretos.</p>
+        <p>"¿Cuándo podré comprarme ese auto?". Sky calcula si tu meta es alcanzable con tu ritmo actual y te muestra ajustes concretos.</p>
         <span class="tag">/api/goals</span>
       </div>
 
@@ -1810,7 +1828,7 @@
       <div class="step reveal">
         <div class="step-number">03</div>
         <h3>Habla con Mr. Money</h3>
-        <p>Pregúntale lo que quieras sobre tu plata. Define metas, completa desafíos, mejora tus hábitos.</p>
+        <p>Pregúntale lo que quieras sobre tu dinero. Define metas, completa desafíos, mejora tus hábitos.</p>
       </div>
     </div>
   </div>
@@ -1882,7 +1900,7 @@
 <section id="empezar" style="padding-top: 0;">
   <div class="container">
     <div class="final-cta reveal">
-      <h2>Deja de pelear<br>con tu <em>plata.</em></h2>
+      <h2>Deja de pelear<br>con tu <em>dinero.</em></h2>
       <p>
         Crea tu cuenta en menos de un minuto y descubre qué se siente tener tus finanzas bajo control sin esfuerzo.
       </p>
