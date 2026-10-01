@@ -63,6 +63,45 @@
   }
 
   /* ===== NAV ===== */
+  /* ── ANNOUNCEMENT MARQUEE ── */
+  .marquee {
+    background: var(--navy);
+    color: var(--white);
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: var(--mono);
+    font-size: 12.5px;
+    letter-spacing: 0.04em;
+    padding: 9px 0;
+  }
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 40s linear infinite;
+  }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  .marquee-group { display: flex; flex-shrink: 0; }
+  .marquee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding-right: 48px;
+  }
+  .marquee-item strong { color: var(--green); font-weight: 600; }
+  .marquee-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    flex-shrink: 0;
+  }
+  @keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track { animation-duration: 120s; }
+  }
+
   nav {
     position: sticky;
     top: 0;
@@ -1446,6 +1485,24 @@
 </style>
 </head>
 <body>
+
+<!-- ANNOUNCEMENT MARQUEE -->
+<div class="marquee" role="region" aria-label="Anuncio">
+  <div class="marquee-track">
+    <div class="marquee-group">
+      <span class="marquee-item"><span class="marquee-dot"></span>Un proyecto apoyado por <strong>Incubadora de Negocios UAndes 2026</strong></span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Un proyecto apoyado por <strong>Incubadora de Negocios UAndes 2026</strong></span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Un proyecto apoyado por <strong>Incubadora de Negocios UAndes 2026</strong></span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Un proyecto apoyado por <strong>Incubadora de Negocios UAndes 2026</strong></span>
+    </div>
+    <div class="marquee-group" aria-hidden="true">
+      <span class="marquee-item"><span class="marquee-dot"></span>Un proyecto apoyado por <strong>Incubadora de Negocios UAndes 2026</strong></span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Un proyecto apoyado por <strong>Incubadora de Negocios UAndes 2026</strong></span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Un proyecto apoyado por <strong>Incubadora de Negocios UAndes 2026</strong></span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Un proyecto apoyado por <strong>Incubadora de Negocios UAndes 2026</strong></span>
+    </div>
+  </div>
+</div>
 
 <!-- NAV -->
 <nav>
